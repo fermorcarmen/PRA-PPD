@@ -1,0 +1,325 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+	color: #696665 
+}
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    margin: 0; /* Se eliminan márgenes laterales */
+    padding: 0;
+    background-color: #f0f0f0; /* Se establece un fondo gris muy claro */
+}
+
+header {
+    width: 100%; /* Se asegura que el header ocupe todo el ancho */
+    background-color: #e8e8e8; /* Se establece un fondo gris claro para el header */
+    padding: 1.25em 2.5em; /* Se hace el header más ancho */
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Se distribuye el espacio entre los elementos */
+    flex-wrap: wrap; /* Se permite que los elementos pasen a la siguiente línea */
+}
+
+header .titles {
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* Se permite que los títulos ocupen el espacio disponible */
+    flex-wrap: wrap; /* Se permite que los títulos se envuelvan */
+}
+
+header img.logo {
+    max-width: 3.125em;
+    vertical-align: middle;
+    margin-right: 0.625em; /* Se añade espacio entre el logo y el título */
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    margin-left: 1em; /* Se añade espacio entre el logo y los iconos */
+}
+
+.header-icons img {
+    max-width: 2em; /* Se aumenta el tamaño de los iconos */
+    margin-left: 0.5em; /* Se añade espacio entre los iconos */
+}
+
+header h1 {
+    font-size: 1.5em;
+    line-height: 1.2; /* Se ajusta la altura de línea para el título */
+    margin: 0; /* Se eliminan márgenes por defecto */
+}
+
+main {
+    flex: 1;
+    max-width: 90%; /* Se establece un ancho máximo */
+    width: 100%; /* Se asegura que el main ocupe todo el ancho */
+    margin: 0 auto; /* Se centra el main horizontalmente */
+    padding: 1.25em;
+}
+
+p{
+	text-align: justify;
+}
+
+.description {
+    margin-bottom: 1.25em;
+}
+
+.description p {
+    margin: 0.625em 0;
+    text-align: justify; /* Se justifica el texto en los párrafos */
+}
+
+.exercises {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25em;
+    justify-content: center;
+
+}
+
+.exercise {
+    flex: 1 1 calc(50% - 2.5em);
+    
+    overflow: hidden;
+    max-width: 100%;
+    margin-bottom: 1.25em;
+    font-size: 0.875em; /* Se reduce el tamaño de la fuente */
+		text-align:justify;
+}
+
+.exercise img {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.2); /* Se aplica sombra a las imágenes */
+}
+
+.exercise h2 {
+    text-align: center;
+    padding: 0.625em;
+    background-color: #f8f8f8;
+    margin: 0;
+
+ 
+}
+
+a {
+    text-decoration: none;
+    color: #CD5C5C; 
+}
+
+.exercise img, .header-icons img, .logo {
+    transition: transform 0.2s; /* Se añade una transición suave */
+}
+
+.exercise img:hover, .header-icons img:hover, .logo:hover {
+    transform: scale(1.05); /* Se aumenta un poco el tamaño */
+}
+
+
+footer {
+    width: 100%; /* Se asegura que el footer ocupe todo el ancho */
+    background-color: #e8e8e8; /* Se establece un fondo gris claro para el footer */
+    padding: 1.25em 2.5em;
+    text-align: left;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between; /* Se distribuye el espacio entre las tres secciones */
+    align-items: center;
+}
+
+footer .section {
+    flex: 1; /* Se asegura que cada sección ocupe el mismo espacio */
+    text-align: center; /* Se centra el texto en cada sección */
+}
+
+.section p {
+    text-align: center;
+}
+
+.tarea h2 {
+color: #2980B9;
+}
+
+.image1_1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.image1_1 img {
+	width: 50%;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}	
+
+.image1_3 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.image1_3 img {
+	width: 25%;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}	
+
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2em 0; /* Se añade espacio alrededor del vídeo */
+}
+
+video {
+    max-width: 80%;
+    height: auto;
+    box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.2); /* Se aplica sombra al vídeo */
+}
+
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Se asegura que los elementos del header se dispongan verticalmente */
+        align-items: center;
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 1.2em; /* Se reduce el tamaño de la fuente en pantallas pequeñas */
+        text-align: center; /* Se centra el texto */
+    }
+
+    header h2 {
+        font-size: 1.2em; /* Se reduce el tamaño de la fuente en pantallas pequeñas */
+        text-align: center; /* Se centra el texto */
+    }
+
+    .header-icons {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+        margin-top: 1em; /* Se añade espacio superior */
+    }
+
+    .header-icons img {
+        margin-left: 0.5em; /* Se añade espacio entre los iconos */
+    }
+
+    header .titles {
+        justify-content: center;
+    }
+
+    .exercise {
+        flex: 1 1 100%; /* Se asegura que las imágenes ocupen el 100% del main en pantallas pequeñas */
+    }
+
+    .exercise h2 {
+        font-size: 1.2em; /* Se reduce el tamaño de la fuente en pantallas pequeñas */
+    }
+	
+    .description h2 {
+        font-size: 1.2em; /* Se reduce el tamaño de la fuente en pantallas pequeñas */
+    }
+	
+	.tarea h2 {
+		font-size: 1.2em;
+	}
+	
+    .video-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2em 0; /* Se añade espacio alrededor del vídeo */
+    }
+
+    video {
+        max-width: 100%;
+        height: auto;
+        box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.2); /* Se aplica sombra al vídeo */
+    }
+
+    footer {
+        flex-direction: column; /* Se hace que las secciones del footer se alineen verticalmente */
+        padding: 0.625em 1.25em; /* Se reduce el padding en pantallas pequeñas */
+        text-align: center;
+    }
+
+    footer .section {
+        font-size: 0.875em; /* Se reduce el tamaño de la fuente en pantallas pequeñas */
+        width: 100%; /* Se asegura que cada sección ocupe el ancho completo */
+        margin-bottom: 1em; /* Se añade espacio entre las secciones */
+    }
+	
+	.image1_1 img {
+	width: 80%;}
+		
+		.image1_3 img {
+		width: 80%;	
+   
+}	
+}
+
+@media (min-width: 768px) and (max-width: 1200px){
+    header {
+        flex-direction: column; /* Se asegura que los elementos del header se dispongan verticalmente */
+        align-items: center;
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 1.2em; /* Se reduce el tamaño de la fuente en pantallas pequeñas */
+        text-align: center; /* Se centra el texto */
+    }
+
+    header h2 {
+        font-size: 1em; /* Se reduce el tamaño de la fuente en pantallas pequeñas */
+        text-align: center; /* Se centra el texto */
+    }
+
+    .header-icons {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+        margin-top: 1em; /* Se añade espacio superior */
+    }
+
+    .header-icons img {
+        margin-left: 0.5em; /* Se añade espacio entre los iconos */
+    }
+
+    header .titles {
+        justify-content: center;
+    }
+	
+		.image1_1 img {
+		width: 60%;
+   
+}	
+	.image1_3 img {
+	width: 40%;
+	}
+	
+	    .exercise h2 {
+        font-size: 1.2em; /* Se reduce el tamaño de la fuente en pantallas pequeñas */
+    }
+	
+		.tarea h2 {
+		font-size: 1.2em;
+	}
+
+    .description h2 {
+        font-size: 1.2em; /* Se reduce el tamaño de la fuente en pantallas más pequeñas */
+    }
+	
+    
+}

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJERCICIO 1. CLIP DE VÍDEO INCRUSTADO EN HTML 5</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="titles">
+            <a href="index.html"><img src="images/logo.png" alt="Logo" class="logo"></a>
+            <div>
+                <a href="index.html">
+                    <h1>PRÁCTICA. PLATAFORMAS DE PUBLICACIÓN Y DISTRIBUCIÓN</h1>
+                    <h1>MÁSTER DE INGENIERÍA INFORMÁTICA. UOC</h1>
+                </a>
+            </div>
+        </div>
+        <div class="header-icons">
+            <a href="index.html"><img src="images/home.png" alt="Home"></a>
+            <a href="info.html"><img src="images/info.png" alt="Info"></a>
+            <a href="biblio.html"><img src="images/biblio.png" alt="Biblioteca"></a>
+        </div>
+    </header>
+    <main>
+        <section class="description">
+            <h2>Clip de vídeo incrustado en HTML 5</h2>
+            <p>Se adjunta a continuación un vídeo incrustado en HTML 5 con todas sus funcionalidades implementadas:</p>
+        </section>
+        <section class="video-container">
+            <video id="video" controls controlsList="download" muted loop poster="images/poster.jpg" preload="auto" playsinline>
+                <source src="videos/clip.mp4" type="video/mp4">
+                <track src="subtitles/subtitles_es.vtt" kind="subtitles" srclang="es" label="Español" default>
+                <track src="subtitles/subtitles_en.vtt" kind="subtitles" srclang="en" label="English">
+                Tu navegador no soporta la etiqueta de vídeo.
+            </video>
+        </section>
+
+        <section class="tarea">
+            <h2>Tarea 1.1:</h2>
+            <p>
+                El formato de vídeo escogido para incrustar en HTML 5 es H.264/MP4. El formato MP4, que utiliza el códec de video H.264 y el códec de audio AAC, es soportado por la mayoría de los navegadores y dispositivos modernos sin necesidad de complementos adicionales, lo que asegura que el video sea reproducible para la mayoría de los usuarios. Además, ofrece una alta calidad de video a <i>bitrates</i> relativamente bajos, optimizando el equilibrio entre calidad visual y tamaño de archivo. Esto facilita una experiencia de usuario sin interrupciones, haciendo del MP4 una opción ideal para la distribución de video en la web. (1)
+            </p>
+            <div class="image1_1">
+                <img src="images/ej1_1.png" alt="Imagen relacionada con la tarea">
+            </div><br>
+            <p>
+                La definición del vídeo obtenido con el móvil es de HD de 1920 x 1080, con un tipo de barrido progresivo, un bitrate de 17 Mb/s, velocidad de fotogramas 30 fps y códec de audio AAC LC. El barrido progresivo es ideal para HTML5 debido a su compatibilidad con la mayoría de los navegadores y dispositivos móviles, ofreciendo una calidad de imagen superior, especialmente en pantallas de alta resolución. Además, evita los problemas visuales del entrelazado, como los artefactos de "combing", y simplifica la implementación al no requerir técnicas de desentrelazado.
+            </p><br>
+            <p>
+                En Avidemux se procede a bajar el bitrate a 6000 kbps, en modo de codificación de tasa de bits media (dos pasadas), que, como se ha visto en la actividad anterior de esta asignatura, en la primera pasada, el codificador analiza el contenido del video para determinar las complejidades y la distribución del movimiento, sin crear el archivo final. En la segunda pasada, usa esta información para asignar de manera más eficiente los bits a las partes del video que más lo necesitan, manteniendo una tasa de bits promedio de 6000 kbits/s. Esto se traduce en una calidad de video más alta y constante en comparación con la codificación de una sola pasada. El bitrate de 6000 kbits es una buena medida para un video de 1920x1080 HD en una página web HTML5 porque proporciona un equilibrio adecuado entre calidad de imagen y tamaño del archivo. A esta tasa de bits, el video mantendrá una alta claridad y detalle visual, especialmente en pantallas de alta resolución. Además, 7000 kbits/s es lo suficientemente eficiente como para evitar tiempos de carga largos y minimizar el buffering, asegurando una reproducción fluida para la mayoría de los usuarios con conexiones a internet modernas. (2)
+            </p>
+            <div class="image1_1">
+                <img src="images/ej1_2.png" alt="Imagen relacionada con la tarea">
+            </div><br>
+            <p>
+                Se comprueba a través de MediaInfo que este video está en formato MP4 con el códec de video AVC (Advanced Video Codec) codificado usando x264, y tiene un bitrate nominal de 6000 kb/s. La resolución es de 1920x1080 píxeles, con una velocidad de fotogramas constante de 30 FPS y un tipo de barrido progresivo. El proceso de codificación utiliza dos pasadas. El audio está codificado en formato AAC LC (Advanced Audio Codec Low Complexity) con un bitrate constante de 96,4 kb/s y una frecuencia de muestreo de 44,1 kHz.
+            </p>
+            <div class="image1_3">
+                <img src="images/ej1_3.png" alt="Imagen relacionada con la tarea">
+            </div><br>
+            <h2>Tarea 1.2:</h2>
+            <p>
+                    Se ha añadido un clip de vídeo a la página HTML utilizando la etiqueta <b>&lt;video&gt;</b> de HTML5, la cual permite reproducir vídeos directamente en el navegador sin necesidad de complementos adicionales. El vídeo se encuentra dentro de una nueva sección <b>&lt;section class="video-container"&gt;</b> en el <b>&lt;main&gt;</b>, y está centrado en la página mediante estilos CSS específicos. El atributo <b>controls</b> en la etiqueta <b>&lt;video&gt;</b> proporciona controles de reproducción al usuario, como reproducir, pausar y ajustar el volumen. Además, se incluye una etiqueta <b>&lt;source&gt;</b> que apunta al archivo de vídeo <b>clip.mp4</b> y especifica su formato. Para asegurar la compatibilidad, se añade el mensaje "Tu navegador no soporta la etiqueta de vídeo" dentro de la etiqueta <b>&lt;video&gt;</b>, el cual se mostrará en navegadores que no soporten esta etiqueta, mejorando así la accesibilidad y la experiencia del usuario. (3)
+            </p><br>
+            <pre>
+                &lt;video controls&gt;
+                    &lt;source src="videos/clip.mp4" type="video/mp4"&gt;
+                    Tu navegador no soporta la etiqueta de vídeo.
+                &lt;/video&gt;
+            </pre>
+            <div class="image1_1">
+                <img src="images/ej1_4.png" alt="Imagen relacionada con la tarea">
+            </div><br>
+            <p>
+                El formato HTML5 ofrece varias ventajas sobre otros métodos como Flash y plugins de terceros. La compatibilidad nativa con los navegadores modernos elimina la necesidad de instalar software adicional, lo que permite que los vídeos se reproduzcan sin problemas en una gran variedad de dispositivos y plataformas, incluyendo navegadores de escritorio y móviles. La introducción de la etiqueta <b>&lt;video&gt;</b> hace que la inclusión de vídeos en una página web sea semánticamente clara, lo que facilita el desarrollo y el mantenimiento del código.
+            </p><br>
+                      
+            <p>
+                HTML5 también proporciona controles integrados de reproducción mediante el atributo <i>controls</i>, ofreciendo una experiencia de usuario uniforme sin necesidad de desarrollos adicionales. Además, soporta múltiples formatos de vídeo como MP4, WebM y Ogg, lo que permite garantizar la compatibilidad con todos los navegadores al proporcionar versiones alternativas del mismo vídeo. La inclusión de subtítulos y pistas de texto mediante la etiqueta <b>&lt;track&gt;</b> mejora la accesibilidad y permite subtítulos en varios idiomas y descripciones de audio, enriqueciendo la experiencia del usuario.
+            </p><br>
+            
+            <p>La capacidad de personalización es otra característica destacada de HTML5. Atributos como <i>autoplay</i>, <i>loop</i>, <i>muted</i> y <i>poster</i> permiten ajustar la reproducción del vídeo según las necesidades específicas de cada proyecto. La compatibilidad con dispositivos móviles se ve mejorada con el atributo <i>playsinline</i>, que permite reproducir vídeos en línea en lugar de a pantalla completa, ofreciendo una mejor experiencia en dispositivos móviles. Además, HTML5 permite un control total del vídeo mediante JavaScript, facilitando la creación de experiencias interactivas y la integración del vídeo con otras funcionalidades web.</p><br>
+            <p>En comparación con métodos anteriores como Flash, que requerían la instalación de plugins y presentaban problemas de seguridad y rendimiento, HTML5 ofrece una solución más accesible, flexible y estandarizada para la publicación de vídeos en la web. Este formato simplifica significativamente el trabajo de los desarrolladores al ofrecer herramientas y atributos nativos que facilitan la personalización y el control del contenido multimedia. (4) (5)</p><br>
+            
+            <h2>Tarea 1.3:</h2>  
+            <p> Se ha publicado una web estática empleando las herramientas <b>Netlify</b> y <b>GitHub</b>. Se ha creado una cuenta en Netlify y se ha iniciado sesión. Se ha conectado Netlify al repositorio de GitHub, permitiendo que Netlify supervise el repositorio y despliegue automáticamente el sitio cada vez que se realiza un <i>commit</i> en la rama principal. Para ello, se ha seleccionado "New site from Git" en el panel de control de Netlify, se ha autorizado a Netlify a acceder a la cuenta de Git y se ha elegido el repositorio y la rama para desplegar. Desde Netlify se ha configurado el entorno de construcción y desplegado el sitio en una URL proporcionada por el servidor. (6)</p>
+            <br>
+            <p>En GitHub se ha creado un repositorio y se han subido los archivos del proyecto. Luego, se ha accedido a la configuración del repositorio, y se ha seleccionado la rama desde la cual desplegar el sitio: master (se ha optado por desplegar desde la raíz del proyecto). Después de guardar los cambios, se obtiene la URL del repositorio de GitHub <i>https://github.com/fermorcarmen/PRA-PPD</i>, donde los ficheros de la web estarán disponibles públicamente, para que Netlify acceda a ellos. (7) (8) </p>
+            <br>
+            <p>A nivel de usuario, la carga de los vídeos es bastante rápida y eficiente, esto se debe a que HTML5 permite la precarga automática de los datos del vídeo <b>(preload="auto")</b>, lo que reduce el retraso en la visualización, este retraso en este caso en particular es menor de un segundo. Tampoco se aprecian retrasos debidos al uso de un servidor web gratuito, que no asegura un ancho de banda adecuado como si ocurre con los CDN contratados. Por otro lado, la integración de controles de usuario <i>(controls)</i> permite a los usuarios/as reproducir, pausar y ajustar el volumen del vídeo de manera intuitiva, por lo que la experiencia de usuario es muy positiva. </p>
+            <br>
+
+            <h2>Tarea 1.4:</h2>
+            <p>
+                Dirección web del vídeo: <a href="https://pra-ppd.netlify.app/ej1">https://pra-ppd.netlify.app/ej1</a><br>
+            </p><br>
+            <p>
+                Se han añadido las siguientes funcionalidades mediante los diferentes atributos que el tag <b>&lt;video&gt;</b> ofrece: (9)<br>
+            </p><br>
+            <p>
+                <b>scr:</b> indica la dirección del recurso. (src="videos/clip.mp4")<br>
+           </p><br>
+            <p>
+                <b>controls:</b> proporciona controles de usuario para reproducir, pausar y ajustar el volumen del vídeo. (<b>&lt;video controls&gt;</b>)<br>
+            </p><br>
+            <p>
+                <b>controlsList="download":</b> permite la descarga del vídeo mediante un control en el menú.<br>
+            </p><br>
+            <p>
+                <b>poster:</b> muestra una imagen estática mientras se carga el vídeo o antes de que comience a reproducirse. (<b>&lt;video poster="images/poster.jpg"&gt;</b>)<br>
+            </p><br>
+            <p>
+                <b>preload="auto":</b> indica que se deben cargar los datos completos del vídeo cuando la página se carga. (<b>&lt;video preload="auto"&gt;</b>)<br>
+            </p><br>
+            <p>
+                <b>autoplay:</b> inicia automáticamente la reproducción del vídeo cuando la página se carga. (<b>&lt;video autoplay&gt;</b>). En la versión final del vídeo se ha quitado esta funcionalidad, para que se vea el póster, dado que la carga era tan rápida que este no se llegaba a ver.<br>
+            </p><br>
+            <p>
+                <b>playsinline:</b> asegura que el vídeo se reproduce <i>inline</i> en dispositivos móviles.<br>
+            </p><br>
+            <p>
+                <b>loop:</b> reproduce el vídeo en bucle. (<b>&lt;video loop&gt;</b>)<br>
+            </p><br>
+            <p>
+                <b>muted:</b> silencia el vídeo por defecto. (<b>&lt;video muted&gt;</b>)<br>
+            </p><br>
+            <p>
+                <b>source:</b> define el archivo de vídeo y los códecs que deben estar presentes en el navegador para reproducir el vídeo correctamente. (<b>&lt;source src="videos/clip.mp4" type="video/mp4"&gt;</b>)<br>
+            </p><br>
+            <p>
+                <b>track:</b> añade subtítulos al vídeo. Cada etiqueta <b>&lt;track&gt;</b> apunta a un archivo .vtt y define el idioma de los subtítulos. (<b>&lt;track src="subtitles/subtitles_es.vtt" kind="subtitles" srclang="es" label="Español" default&gt; &lt;track src="subtitles/subtitles_en.vtt" kind="subtitles" srclang="en" label="English"&gt;</b>)<br>
+            </p><br><br>
+            <p>
+                Otras funcionalidades investigadas que no se han incluido, por no ser necesarias en el contexto de una web estática y por las características y duración del vídeo, son las siguientes:<br>
+            </p><br>
+            <p>
+                <b>width:</b> define las dimensiones horizontales del vídeo.<br>
+            </p><br>
+            <p>
+                <b>height:</b> define las dimensiones verticales del vídeo.<br>
+            </p><br>
+            <p>
+                <b>crossorigin="anonymous":</b> útil si el vídeo está alojado en un dominio diferente y necesitas manejar CORS.<br>
+            </p><br>
+            <p>
+                <b>track con kind="chapters":</b> añade capítulos al vídeo, lo cual puede ser útil para navegación en vídeos largos.<br>
+            </p><br>
+            <p>
+                <b>controlsList="noremoteplayback":</b> desactiva la capacidad de transmitir el vídeo a dispositivos remotos a través de tecnologías como Google <i>Cast</i> o <i>AirPlay</i><br>
+            </p><br>
+            
+            <h2>Tarea 1.5:</h2>
+            <p>
+                A continuación se analizan algunos de los servicios de valor añadido tanto en publicación como en distribución que ofrecen los principales CDN (AWS, Azure, Google e IBM):
+            </p><br>
+            <p>
+                <b>AMAZON WEB SERVICES (AWS)</b> ofrece entre otras herramientas <b>AWS Elemental MediaConvert</b>, que es un servicio de procesamiento de vídeo basado en archivos, que permite transcodificar contenido de vídeo para su transmisión y entrega en múltiples pantallas a escala (10). Este servicio agiliza el flujo de trabajo de procesamiento de vídeo, asegurando la compatibilidad con varios dispositivos y plataformas. <b>Amazon Transcribe</b>, otro componente de AWS, automatiza las cargas de trabajo de subtitulado transcribiendo con precisión el contenido de audio de los vídeos (11). <b>Amazon Rekognition Video</b>, un servicio de aprendizaje automático totalmente administrado por AWS, admite transmisión de eventos de vídeo en tiempo real y análisis de vídeo almacenado (12). Este servicio aprovecha algoritmos de aprendizaje automático para permitir a los proveedores de contenido extraer información importante del contenido de vídeo, desde el reconocimiento de objetos hasta el análisis de sentimientos. <b>Amazon Translate</b> es un servicio web que permite a los usuarios traducir texto con bastante precisión. Al aprovechar el poder de la traducción automática neuronal, Amazon Translate supera los algoritmos tradicionales en términos de precisión y traducciones con sonido natural (13). <b>Amazon Comprehend</b> es un servicio de PNL que ofrece capacidades escalables de procesamiento del lenguaje natural. Este servicio permite a los usuarios analizar grandes cantidades de datos de texto, facilitando la extracción de información valiosa y tendencias ocultas en los documentos, desde el análisis de sentimientos hasta el reconocimiento de entidades (14).
+            </p><br>
+            <p>
+                <b>MICROSOFT AZURE</b> también ofrece una gran variedad de servicios adicionales que satisfacen las necesidades de publicación y distribución de vídeos. Una de las características destacadas de Azure es su <i>capacidad para gestionar, transformar y entregar contenido multimedia a través de flujos de trabajo basados en la nube</i> (15). Los <i>servicios de transmisión y codificación de vídeo de alta definición</i> de Azure permiten a los proveedores de contenido llegar a audiencias con una calidad de vídeo superior y un rendimiento de transmisión optimizado, mejorando la experiencia de visualización general de los usuarios. Las capacidades de <b>AI Speech</b> de Azure incluyen reconocimiento de voz, conversión de texto a voz, traducción de voz y funciones de aplicaciones habilitadas para voz (16). <b>Azure AI Video Indexer</b> aprovecha los modelos de inteligencia artificial para extraer valiosos conocimientos visuales y de audio del contenido de vídeo almacenado, lo que permite que se pueda buscar y descubrir dicha información mediante técnicas de indexación avanzadas (17). Al combinar flujos de trabajo basados en la nube, conocimientos basados en inteligencia artificial y tecnologías de reconocimiento de voz, Azure mejora la eficiencia y efectividad de los servicios de publicación y distribución.
+            </p><br>
+            <p>
+                <b>GOOGLE</b> a través de la tecnología <b>Video AI</b>, mediante la funcionalidad <b>AutoML Video Intelligence</b>, permite un análisis de vídeo preciso al reconocer más de 20.000 objetos, lugares y acciones en vídeos, extrayendo metadatos enriquecidos en varios niveles (18). Esta capacidad avanzada de análisis de vídeo permite a los proveedores de contenido obtener información más profunda sobre las preferencias de los espectadores y las métricas de participación. La tecnología de <i>“temporización automática”</i> de Google simplifica el proceso de agregar subtítulos a los vídeos, lo que permite que sus contenidos sean más accesibles al mejorarlos con subtítulos (19). Además, el servicio <b>Pub/Sub</b> de Google facilita la creación de sistemas basados en eventos para una comunicación eficiente entre editores y suscriptores (20). Este mecanismo de comunicación en tiempo real mejora la escalabilidad y la capacidad de respuesta de los sistemas de distribución de vídeo, asegurando la entrega en tiempo real de actualizaciones de contenido y notificaciones importantes.
+            </p><br>
+            <p>
+                <b>IBM</b> destaca la <i>importancia de los metadatos</i> como un poderoso complemento al contenido de vídeo, permitiendo a los usuarios clasificar y organizar el contenido de manera más eficiente (21). Al aprovechar los metadatos, los proveedores de contenido pueden mejorar la capacidad de descubrimiento del contenido, mejorar las funcionalidades de búsqueda y agilizar los procesos de gestión de contenido, mejorando la experiencia general del usuario. <b>Watson Speech-to-Text API</b> de IBM es otra herramienta que facilita la transcripción de voz a texto en varios idiomas, disponible como software como servicio (SaaS) o para fines de auto-hospedaje (22). Esta API simplifica el proceso de conversión de voz a texto y mejora la accesibilidad y la capacidad de búsqueda del contenido de vídeo a través de transcripciones precisas. Además, <b>IBM Watson Visual Recognition</b> ofrece capacidades avanzadas de reconocimiento de imágenes (23). Al integrar tecnologías de reconocimiento visual, IBM permite a los creadores de contenido optimizar la entrega de contenido, mejorar la participación del usuario y extraer información valiosa de los medios visuales.
+            </p><br>
+            
+            
+
+        </section>
+        
+    </main>
+    <footer>
+        <div class="section">
+            <p>©2024 fermorcar</p>
+        </div>
+        <div class="section">
+            <p>Máster Universitario en Ingeniería Informática. UOC</p>
+        </div>
+        <div class="section">
+            <p>M1.306 - PDD</p>
+        </div>
+    </footer>
+</body>
+</html>
