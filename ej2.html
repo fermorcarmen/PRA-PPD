@@ -53,20 +53,18 @@
         </div><br>
 
         <h2>Tarea 2.2:</h2>
-        <p>Se siguen las instrucciones anexas al enunciado de esta práctica y se ejecuta la emisión por streaming. Como se entrecortaba un poco, se ha realizado la emisión eligiendo “H.264+MP3 (TS)”como codificación: </p>
+        <p>Se siguen las instrucciones anexas al enunciado de esta práctica y se ejecuta la emisión por <i>streaming</i>. Como se entrecortaba un poco, se ha realizado la emisión eligiendo “H.264+MP3 (TS)”como codificación: </p>
         
         <div class="image1_4">
             <img src="images/ej2_4.png" alt="Imagen relacionada con la tarea">
         </div><br> 
                
     <p>En el VLC de emisión se obtienen los siguientes datos:</p>
-    <div class="image1_3">
+    <div class="image1_4">
         <img src="images/ej2_7.png" alt="Imagen relacionada con la tarea">
-    </div>
-    <div class="image1_3">
-        <img src="images/ej2_8.png" alt="Imagen relacionada con la tarea">
+
     </div><br>     
-    <p>Se lee una tasa de bits del contenido de 3400 a 10500 kb/s -> com una mediana aprox. de 4600 kb/s -> <b>4.600.000 bits/s</b></p><br>
+    <p>Se lee una tasa de bits del contenido de 3400 a 10500 kb/s -> con una mediana aprox. de 4600 kb/s -> <b>4.600.000 bits/s</b></p><br>
 
     <p>Bitrate = Tamaño en disco del clip (bits) / Duración del clip (s)</p><br>
 
@@ -78,13 +76,10 @@
  
     <h2>Tarea 2.3:</h2>
     <p>En el VLC de recepción se obtienen los siguientes datos:</p>
-    <div class="image1_3">
+    <div class="image1_4">
         <img src="images/ej2_5.png" alt="Imagen relacionada con la tarea">
     </div>
-    <div class="image1_3">
-        <img src="images/ej2_6.png" alt="Imagen relacionada con la tarea">
-    </div><br>     
-    
+     <br>
     <p>Se lee una tasa de bits del contenido de 1250 a 3750 kb/s -> con una mediana aprox. de 3.700 kb/s -> <b>3.700.000 bits/s</b></p><br>
 
     <p>Bitrate = Tamaño en disco del clip (bits) / Duración del clip (s)</p><br>
@@ -95,7 +90,179 @@
  
     <p>La diferencia entre la tasa de bits del contenido en una recepción de streaming (3.700.000 bps) y la tasa teórica esperada (5.329.715 bps) puede deberse a varios factores, entre los cuales se incluyen la compresión dinámica y las configuraciones del codificador que ajustan la tasa de bits según la complejidad del contenido, las limitaciones de ancho de banda de la red y posibles congestiones que reducen la cantidad de datos transmitidos, y el uso de técnicas de ajuste de tasa de bits adaptativa que varían la calidad del video en tiempo real según las condiciones de la red y del dispositivo receptor. Además, configuraciones específicas del emisor, como la reducción de la calidad para asegurar una transmisión fluida, y posibles errores o configuraciones incorrectas en el proceso de codificación también pueden contribuir a esta diferencia. (24) (25) (26)</p><br>
 
+    <h2>Tarea 2.4:</h2>
+    <p>Si se realiza una pausa en el VLC emisor, tarda 2 segundos en pausarse el video en el receptor. Si se vuelve a poner en reproducción, tarda aproximadamente unos 6 segundos. Este retraso puede justificarse por varias razones: (26) (27)</p>
+    <br>
+    <p><b>Buffer del Receptor:</b> VLC utiliza un buffer para asegurar una reproducción fluida del video. Este buffer almacena algunos segundos de video para prevenir interrupciones causadas por fluctuaciones en la red. Cuando se pausa el emisor, el receptor continuará reproduciendo el contenido almacenado en su buffer antes de detenerse. Esta es probablemente la principal causa del retraso de 2 segundos que se observa. Además, cuando se reanuda la reproducción, el receptor necesita llenar nuevamente su buffer con los datos entrantes, lo que puede causar un retraso adicional de aproximadamente 6 segundos.</p>
+    <br>    
+    <p><b>Latencia de Red:</b> Aunque se está transmitiendo en local, el protocolo RTP está diseñado para funcionar en redes con cierta latencia inherente. La configuración predeterminada de VLC para RTP puede incluir ciertas latencias para asegurar que el contenido se transmita de manera estable y continua. Estas latencias ayudan a manejar la variabilidad en la transmisión de datos y aseguran una experiencia de visualización sin interrupciones, pero también contribuyen al retraso observado.</p>
+    <br>   
+    <p><b>Configuraciones de VLC:</b> Las configuraciones de buffer y caché en VLC pueden afectar significativamente la latencia. Se pueden ajustar estas configuraciones en VLC para reducir la cantidad de contenido que se almacena en el buffer del receptor. Por ejemplo, se puede reducir la "Demora de caché en red" en las preferencias de VLC para disminuir el tiempo que los datos se almacenan en el buffer antes de ser reproducidos, lo que puede ayudar a minimizar el retraso tanto al pausar como al reanudar la reproducción.</p>
+    <br>   
+    <p><b>Tiempos de Respuesta:</b> El tiempo de respuesta del VLC emisor suele ser bajo, ya que simplemente deja de enviar datos cuando se pausa. Además, el tiempo de transmisión de datos en una configuración local es prácticamente insignificante, ya que los datos no necesitan atravesar una red externa. Sin embargo, el receptor debe procesar y vaciar su buffer antes de detenerse, lo que agrega unos segundos al tiempo de respuesta. Similarmente, al reanudar la reproducción, el receptor debe llenar nuevamente su buffer, lo que contribuye a un retraso adicional.</p>
+    <br>
+    <h2>Tarea 2.5:</h2>    
+    <p>Se adjunta captura de pantalla del escritorio con los dos VLC en marcha y las ventanas con las estadísticas de cada uno:</p>
+    <div class="image1_4">
+        <img src="images/ej2_9.png" alt="Imagen relacionada con la tarea">
+    </div>
+    <br>
+    <p><b>FACTOR DE COMPRESIÓN:</b></p>
+    <br>
+    <p>Como ya se ha visto en ejercicios anteriores existe una diferencia entre las tasas de bits de contenido del emisor y del receptor lo que indica que se da un factor de comprensión:</p>
+    <br>
+    <p>
+        Bitrate en el emisor = 4.600.000 bits/s<br>
+        Bitrate en el emisor = 3.700.000 bits/s
+    </p>
+    <br>
+    <p><b>FC = 3.700.000 bps / 4.600.000 bps = 0,804</b></p>
+    <br>
+    <p>Este factor es aún mayor si se considera el <i>bitrate</i> del clip original sin comprimir:</p>
+    <br>
+    <p>
+        Bitrate clip sin comprimir = 106.594.304 bits/20 s = 5.329.715 bits/s - <b>FC = 3.700.000 bps / 5.329.715 bps = 0,694</b>
+    </p>
+    <br>
+    <h2>Tarea 2.6:</h2>    
+    
+    <p>Para esta actividad se ha seleccionado el proceso de <b>Streaming de Baja Latencia de AWS Elemental MediaLive</b>. Este es 
+        un servicio de transcodificación de video en tiempo real que permite transformar el contenido de video en vivo en 
+        diferentes formatos aptos para su distribución por Internet. Este servicio puede ajustarse para cumplir con los requisitos 
+        de baja latencia, indicado para aplicaciones como transmisiones deportivas en vivo, noticias y eventos en tiempo real. 
+        La arquitectura modular de MediaLive permite una integración eficaz con otros servicios de AWS, optimizando el flujo 
+        de trabajo desde la ingesta del contenido hasta su entrega a los espectadores. (28)</p>
+        <br>
+        <p><b>COMPONENTES DEL FLUJO DE TRABAJO:</b></p>
+        <p>Un flujo de trabajo típico de MediaLive incluye tres componentes principales que trabajan en conjunto para 
+        proporcionar una transmisión de baja latencia:</p>
+        <br>
+        <p><b>1. Canal de MediaLive:</b> el núcleo del flujo de trabajo que ingiere y transcodifica el contenido fuente. Este canal 
+        puede configurarse para manejar múltiples entradas y salidas, permitiendo una alta flexibilidad en la gestión 
+        del contenido de video.</p>
+        
+        <p><b>2. Sistemas ascendentes:</b> Dispositivos o servicios que proporcionan el contenido de origen. Ejemplos de sistemas 
+        ascendentes incluyen cámaras conectadas directamente a Internet, dispositivos de streaming y codificadores 
+        de contribución ubicados en eventos en vivo. Estos sistemas deben estar configurados para enviar contenido 
+        en un protocolo compatible con MediaLive (por ejemplo, HLS, RTP, RTMP).</p>
+        
+        <p><b>3. Sistemas descendentes:</b> Destinos del contenido transcodificado que se envía desde MediaLive. Estos pueden 
+        incluir servicios de origen como AWS Elemental MediaPackage, redes de distribución de contenido (CDN) como 
+        Amazon CloudFront y dispositivos de reproducción final donde los usuarios consumen el contenido 
+        (smartphones, televisores, etc.).</p>
+        <br>   
+        <p><b>CONFIGURACIÓN DE ENTRADAS:</b></p>
+        <p>La configuración adecuada de las entradas en MediaLive es esencial para asegurar una baja latencia. Las entradas 
+        pueden ser configuradas para recibir contenido en diferentes protocolos, pero se debe prestar especial atención a los 
+        protocolos que soportan baja latencia.</p>
+        <br>   
+        <p><b>1. Crear Grupo de Seguridad de Entrada:</b><br>
+        - Identificar las direcciones IP de las fuentes de contenido que se van a utilizar.<br>
+        - En la consola de MediaLive, crear un grupo de seguridad de entrada que permita solo las direcciones IP 
+        identificadas, garantizando así que solo fuentes autorizadas puedan enviar contenido a MediaLive.</p>
+        
+        <p><b>2. Crear la Entrada RTP:</b><br>
+        - En la consola de MediaLive, seleccionar la opción para crear una nueva entrada.<br>
+        - Elegir "RTP" como tipo de entrada y asociar el grupo de seguridad creado anteriormente.<br>
+        - Configurar los detalles de la entrada, como la dirección IP de destino y el puerto, para que MediaLive 
+        pueda recibir el contenido empujado desde el sistema ascendente.</p>
+        <br>
+        <p><b>CONFIGURACIÓN DEL CANAL:</b></p>
+        <p>Después de configurar las entradas, el siguiente paso es crear y configurar un canal en MediaLive para procesar y 
+        transcodificar el contenido.</p>
+        <br>
+        <p><b>1. Creación del Canal:</b><br>
+        - Acceder a la consola de MediaLive y seleccionar la opción para crear un nuevo canal.<br>
+        - Asignar las entradas configuradas al canal.<br>
+        - Configurar los detalles del canal, incluyendo las especificaciones de transcodificación (resolución, códec, 
+        velocidad de bits) y los destinos de salida.</p>
+        
+        <p><b>2. Configuración de Salidas:</b><br>
+        - Definir los grupos de salida y las codificaciones específicas para cada uno (video, audio, subtítulos).<br>
+        - Especificar los sistemas descendentes a los que se enviará el contenido transcodificado. Por ejemplo, 
+        configurar salidas para MediaPackage y CloudFront, que están optimizados para entregar contenido con 
+        baja latencia.</p>
+        <br>
+        <p><b>OPTIMIZACIÓN PARA BAJA LATENCIA</b><br>
+        Para asegurar una transmisión de baja latencia, es necesario ajustar varios parámetros técnicos:</p>
+        <br>
+        <p><b>1. Protocolo de Entrega:</b> Utilizar protocolos que soporten baja latencia como RTP o RTMP. Estos protocolos son 
+        más eficientes en la entrega rápida del contenido en comparación con otros como HLS.</p>
+        
+        <p><b>2. Configuración de Codificación:</b><br>
+        - Ajustar las configuraciones de codificación en MediaLive, incluyendo el uso de GOP (Group of Pictures) 
+        más pequeños para reducir el tiempo de procesamiento y transmisión.<br>
+        - Configurar el tamaño del buffer y el porcentaje de llenado del buffer en MediaLive para mantener la 
+        latencia baja, asegurando que los datos se procesen y transmitan lo más rápido posible.</p>
+        
+        <p><b>3. Uso de CDN:</b><br>
+        - Integrar con una CDN como Amazon CloudFront para distribuir el contenido de manera rápida y 
+        eficiente. Configurar CloudFront para soportar baja latencia optimizando los puntos de presencia (PoP) 
+        y las cachés.<br>
+        - Asegurarse de que la CDN esté configurada para manejar solicitudes de baja latencia y para distribuir 
+        contenido en tiempo real sin demoras significativas.</p>
+        <br>
+        <p><b>INICIO Y SUPERVISIÓN DEL CANAL</b><br>
+        Con el canal y las configuraciones de entrada y salida establecidas, el siguiente paso es iniciar el canal y supervisar su 
+        rendimiento:</p>
+        <br>
+        <p><b>1. Iniciar el Canal:</b><br>
+        - Desde la consola de MediaLive, activar el canal y comenzar a procesar el contenido.<br>
+        - Monitorear el canal para asegurar que la ingesta y transcodificación del contenido se realizan 
+        correctamente y dentro de los parámetros de latencia esperados.</p>
+        
+        <p><b>2. Supervisión:</b><br>
+        - Utilizar Amazon CloudWatch para supervisar las métricas del canal, como el uso de CPU, el rendimiento 
+        de la red y la latencia de la transcodificación.<br>
+        - Configurar alarmas en CloudWatch para recibir notificaciones si la latencia supera los umbrales 
+        establecidos, permitiendo una respuesta rápida para ajustar las configuraciones según sea necesario.<br>
+        - Emplear AWS CloudTrail para registrar y auditar las acciones y configuraciones realizadas en MediaLive, 
+        asegurando una trazabilidad completa y facilitando la solución de problemas.</p>
+        <br>
+        <p><b>POLÍTICAS DE SEGURIDAD Y GESTIÓN DE ROLES</b><br>
+        Para la implementación y gestión segura de AWS Elemental MediaLive, es fundamental aplicar políticas de usuario 
+        específicas y roles de gestión:</p>
+        <br>
+        <p><b>Políticas de Usuario (IAM):</b></p>
+        <p>- Roles y Permisos: Configurar políticas de IAM (Identity and Access Management) para controlar quién puede 
+        acceder y modificar configuraciones en MediaLive. Asignar roles específicos a administradores y usuarios 
+        finales para asegurar que solo el personal autorizado pueda realizar cambios críticos.</p>
+        
+        
+        <p>- Seguridad Granular: Establecer políticas que definan permisos detallados para acciones específicas dentro de 
+        MediaLive, como la creación y modificación de canales, configuraciones de entrada y salida, y monitoreo.</p>
+        <br>
+        <p><b>Gestión y Administración de Servicios:</b></p>
+        <p>- Roles de Gestión: Utilizar roles de IAM para definir los permisos y accesos necesarios para la administración y 
+        operación de MediaLive. Asignar roles específicos para tareas administrativas, de monitoreo y de operación 
+        diaria.</p>
 
+        <p>- Auditoría y Cumplimiento: Implementar AWS CloudTrail para registrar todas las acciones realizadas en 
+        MediaLive, permitiendo auditorías detalladas y asegurando el cumplimiento de políticas internas y normativas 
+        externas.</p>
+        <br>
+        <p><b>PRECIO:</b><br>
+        En base a la solución analizada que integra MediaLive, MediaPackage y CloudFront, se obtienen en AWS los precios 
+        mensuales de los 3 servicios: (29) (30) (31)</p>
+        
+        <div class="image1_4">
+            <img src="images/ej2_10.png" alt="Imagen relacionada con la tarea">
+        </div>
+        <br>
+        <p><i>*Cálculos presupuesto CloudFront:</i></p>
+
+        <p>- <u>Transferencia de Datos Saliente a Internet (GB/mes)</u>: 3.6 GB/usuario/hora × 10.000 usuarios × 730 horas × 
+        0.20 (Tasa de aciertos) = 5.256.000 GB / mes<br>
+        - <u>Transferencia de Datos Saliente al Origen (GB/mes)</u>: 5.256.000 GB / mes<br>
+        - <u>Número de Solicitudes (HTTPS) / mes</u>: 5.000 solicitudes/s × 60 s/minuto × 60 min/hora × 730 horas = 
+        1.314.000.000 solicitudes por mes</p>
+        <br>
+        <p>Coste Total mensual = 192.209 $ (MediaLive) + 308.082 $ (MediaPackage) + 252.541 $ (CloudFront) = 752.832 $/mes</p>
+        <br>
+        <p><b>Coste por minuto = 752.832 $ por mes / 730 horas por mes / 60 min por hora = 17,188 $ por min</b></p>
+        <br>
+        <p><b>Coste por minuto / usuario = 17,188 $ por min / 10.000 usuarios = 0,00172 $ por minuto</b></p>
+        
     </section>
     </main>
     <footer>

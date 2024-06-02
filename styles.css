@@ -16,7 +16,7 @@ body {
     flex-direction: column;
     margin: 0; /* Se eliminan márgenes laterales */
     padding: 0;
-    background-color: #f0f0f0; /* Se establece un fondo gris muy claro */
+    background-color: #f0f0f0; /* Se establece un fondo gris claro */
 }
 
 header {
@@ -50,7 +50,7 @@ header img.logo {
 }
 
 .header-icons img {
-    max-width: 2em; /* Se aumenta el tamaño de los iconos */
+    max-width: 2em; /* Tamaño de los iconos */
     margin-left: 0.5em; /* Se añade espacio entre los iconos */
 }
 
@@ -124,7 +124,7 @@ a {
 }
 
 .exercise img:hover, .header-icons img:hover, .logo:hover {
-    transform: scale(1.05); /* Se aumenta un poco el tamaño */
+    transform: scale(1.05); 
 }
 
 
@@ -335,7 +335,7 @@ video {
 	}
 
     .description h2 {
-        font-size: 1.2em; /* Se reduce el tamaño de la fuente en pantallas más pequeñas */
+        font-size: 1.2em; /* Se reduce el tamaño de la fuente en pantallas pequeñas */
     }
 	
     
