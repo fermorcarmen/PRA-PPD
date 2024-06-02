@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EJERCICIO 2. PRÁCTICA DE STREAMING DE UN VÍDEO LOCAL</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
@@ -27,8 +27,76 @@
     <main>
         <section class="description">
             <h2>Práctica de streaming de un vídeo local</h2>
-            <p>Aquí va el contenido del ejercicio 2, donde se debe describir cómo realizar el streaming de un vídeo local.</p>
         </section>
+        <section class="tarea">
+            <h2>Tarea 2.1:</h2>
+            <p>Se convierte el clip con Avidemux:</p>
+
+                <p> -	Codificación de salida de vídeo: MPEG4 AVC</p>
+                <p> -	Configuración de la codificación: Tasa de bits media-dos pasadas y 5000 Kbps</p>
+                <p> -	Formato de audio: MP3 (lame)</p>
+                <p> -	Contenedor: MKV</p><br>
+                </p>
+       <a href="videos/clip01.mkv" download="clip01.mkv">Descargar clip modificado</a><br>  
+
+        <div class="image1_1">
+            <img src="images/ej2_2.png" alt="Imagen relacionada con la tarea">
+        </div><br>
+
+        
+        <p>Se adjunta el contenido del fichero obtenido de MediaInfo con la información del clip transformado conforme las indicaciones del enunciado:</p>
+        <br>
+        <a href="files/clip01_MediaInfo.txt" download="clip01_MediaInfo.txt">Descargar archivo MediaInfo</a>
+       
+        <div class="image1_4">
+            <img src="images/ej2_3.png" alt="Imagen relacionada con la tarea">
+        </div><br>
+
+        <h2>Tarea 2.2:</h2>
+        <p>Se siguen las instrucciones anexas al enunciado de esta práctica y se ejecuta la emisión por streaming. Como se entrecortaba un poco, se ha realizado la emisión eligiendo “H.264+MP3 (TS)”como codificación: </p>
+        
+        <div class="image1_4">
+            <img src="images/ej2_4.png" alt="Imagen relacionada con la tarea">
+        </div><br> 
+               
+    <p>En el VLC de emisión se obtienen los siguientes datos:</p>
+    <div class="image1_3">
+        <img src="images/ej2_7.png" alt="Imagen relacionada con la tarea">
+    </div>
+    <div class="image1_3">
+        <img src="images/ej2_8.png" alt="Imagen relacionada con la tarea">
+    </div><br>     
+    <p>Se lee una tasa de bits del contenido de 3400 a 10500 kb/s -> com una mediana aprox. de 4600 kb/s -> <b>4.600.000 bits/s</b></p><br>
+
+    <p>Bitrate = Tamaño en disco del clip (bits) / Duración del clip (s)</p><br>
+
+    <p>Tamaño en disco del fichero: 13.324.288 bytes = 106.594.304 bits</p><br>
+
+    <p>Bitrate teórico: 106.594.304 bits/20 s = <b>5.329.715 bits/s</b></p><br>
+
+    <p>La diferencia entre la tasa de bits de contenido en una emisión de streaming (4.600.000 bps) y la tasa teórica esperada (5.329.715 bps) puede deberse a la compresión dinámica y configuraciones del codificador que ajustan la tasa de bits según la complejidad del contenido, limitaciones de ancho de banda disponibles o congestión de la red, y técnicas de ajuste de tasa de bits adaptativa que varían la calidad del video en tiempo real según las condiciones de la red y del dispositivo receptor. Además, configuraciones específicas del emisor y posibles errores de codificación también pueden contribuir a esta discrepancia. (24) (25) (26)</p><br>
+ 
+    <h2>Tarea 2.3:</h2>
+    <p>En el VLC de recepción se obtienen los siguientes datos:</p>
+    <div class="image1_3">
+        <img src="images/ej2_5.png" alt="Imagen relacionada con la tarea">
+    </div>
+    <div class="image1_3">
+        <img src="images/ej2_6.png" alt="Imagen relacionada con la tarea">
+    </div><br>     
+    
+    <p>Se lee una tasa de bits del contenido de 1250 a 3750 kb/s -> con una mediana aprox. de 3.700 kb/s -> <b>3.700.000 bits/s</b></p><br>
+
+    <p>Bitrate = Tamaño en disco del clip (bits) / Duración del clip (s)</p><br>
+
+    <p>Tamaño en disco del fichero: 13.324.288 bytes = 106.594.304 bits</p><br>
+
+    <p>Bitrate teórico: 106.594.304 bits/20 s = <b>5.329.715 bits/s</b></p>
+ 
+    <p>La diferencia entre la tasa de bits del contenido en una recepción de streaming (3.700.000 bps) y la tasa teórica esperada (5.329.715 bps) puede deberse a varios factores, entre los cuales se incluyen la compresión dinámica y las configuraciones del codificador que ajustan la tasa de bits según la complejidad del contenido, las limitaciones de ancho de banda de la red y posibles congestiones que reducen la cantidad de datos transmitidos, y el uso de técnicas de ajuste de tasa de bits adaptativa que varían la calidad del video en tiempo real según las condiciones de la red y del dispositivo receptor. Además, configuraciones específicas del emisor, como la reducción de la calidad para asegurar una transmisión fluida, y posibles errores o configuraciones incorrectas en el proceso de codificación también pueden contribuir a esta diferencia. (24) (25) (26)</p><br>
+
+
+    </section>
     </main>
     <footer>
         <div class="section">
